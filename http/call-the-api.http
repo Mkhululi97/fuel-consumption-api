@@ -1,11 +1,10 @@
+### GET A LIST OF VEHICLES
 GET http://localhost:3000/api/vehicles HTTP/1.1
 
-###
-
+### GET A SPECIFIC CAR
 GET http://localhost:3000/api/vehicle?id=245 HTTP/1.1
 
-###
-
+### ADD A VEHICLE
 POST http://localhost:3000/api/vehicle HTTP/1.1
 content-type: application/json
 
@@ -14,7 +13,7 @@ content-type: application/json
     "regNumber": "CAA 780-123"
 }
 
-###
+### REFUEL A VEHICLE
 POST http://localhost:3000/api/refuel HTTP/1.1
 content-type: application/json
 

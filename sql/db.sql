@@ -1,4 +1,5 @@
-CREATE TABLE vehicles (
+--CREATES vehicles TABLE on fuel_api schema
+CREATE TABLE fuel_api.vehicles (
     id SERIAL PRIMARY KEY,
     description TEXT NOT NULL,
     reg_number TEXT NOT NULL UNIQUE,
@@ -7,10 +8,10 @@ CREATE TABLE vehicles (
     total_distance NUMERIC,
     fuel_consumption NUMERIC
 );
-
-CREATE TABLE fuel_entries (
+--CREATES fuel_entries TABLE on fuel_api schema
+CREATE TABLE fuel_api.fuel_entries (
     id SERIAL PRIMARY KEY,
-    vehicle_id INTEGER REFERENCES vehicles(id),
+    vehicle_id INTEGER REFERENCES fuel_api.vehicles(id),
     distance NUMERIC NOT NULL,
     liters NUMERIC NOT NULL,
     amount_paid NUMERIC NOT NULL,
