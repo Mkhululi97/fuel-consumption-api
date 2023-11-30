@@ -1,0 +1,11 @@
+.success,
+.fail {
+  padding-top: 2px;
+  margin: 12px;
+}
+.success {
+  color: green;
+}
+.fail {
+  color: red;
+}
