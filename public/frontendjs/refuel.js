@@ -16,13 +16,16 @@ document.addEventListener("alpine:init", () => {
             (this.liters = Number(litres)),
             (this.amount = Number(amount)),
             (this.distance = Number(distance));
-          axios.post("http://localhost:3000/api/refuel", {
-            vehicleId: this.vehicleId,
-            liters: this.liters,
-            amount: this.amount,
-            distance: this.distance,
-            filledUp: true,
-          });
+          axios.post(
+            "https://fuel-consumption-api-5zzb.onrender.com/api/refuel",
+            {
+              vehicleId: this.vehicleId,
+              liters: this.liters,
+              amount: this.amount,
+              distance: this.distance,
+              filledUp: true,
+            }
+          );
         }
       },
 

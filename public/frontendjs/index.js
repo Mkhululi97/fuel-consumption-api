@@ -9,21 +9,22 @@ document.addEventListener("alpine:init", () => {
       vehicles: [],
 
       getVehicles() {
-        return axios.get("http://localhost:3000/api/vehicles");
+        let res = axios.get(
+          "https://fuel-consumption-api-5zzb.onrender.com/api/vehicles"
+        );
+        res
+          .then((data) => {
+            data.json();
+          })
+          .then((data) => {
+            this.vehicles = data;
+          });
       },
-      setArr() {
-        this.getVehicles().then((result) => {
-          let vehicleObj = result.data;
-          // console.log(vehicleObj.data);
-          this.vehicles = vehicleObj.data;
-          return this.vehicles;
-        });
-      },
+
       //functions you want to call immediately on page load
       init() {
         this.tile;
         this.getVehicles();
-        this.setArr();
       },
     };
   });

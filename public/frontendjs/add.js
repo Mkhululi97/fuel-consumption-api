@@ -9,15 +9,23 @@ document.addEventListener("alpine:init", () => {
       regNumber: "",
       carAddedSuccess: "",
       carNotAdded: "",
+      //use description and registration number to , add vehicles to the app
       addVehicle(desc, regNum) {
+        //check if input feilds are inputed
         if ((desc, regNum)) {
+          //update variables to use value coming from the inputs
           this.description = desc;
           this.regNumber = regNum;
-          let res = axios.post("http://localhost:3000/api/vehicle", {
-            description: this.description,
-            regNumber: this.regNumber,
-          });
+          //call api that add vehicles to the app
+          let res = axios.post(
+            "https://fuel-consumption-api-5zzb.onrender.com/api/add",
+            {
+              description: this.description,
+              regNumber: this.regNumber,
+            }
+          );
           res.then((data) => {
+            //update user about their form submission
             if (data.data.status === "success") {
               this.carAddedSuccess =
                 data.data.status + " your car has been added";
@@ -25,6 +33,7 @@ document.addEventListener("alpine:init", () => {
               this.carNotAdded = data.data.status + " " + data.data.message;
             }
           });
+          //clear all updates after 3500
           setTimeout(() => {
             this.carAddedSuccess = "";
             this.carNotAdded = "";
