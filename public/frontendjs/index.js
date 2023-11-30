@@ -3,6 +3,7 @@
 //GET A SPECIFIC CAR
 // GET http://localhost:3000/api/vehicle?id=42 HTTP/1.1 --> should letter change this to use render url
 //initialize alpine
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("vehicles", () => {
     return {

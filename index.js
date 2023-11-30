@@ -26,6 +26,8 @@ const fuelConsumptionAPI = FuelConsumptionAPI(fuelConsumption);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+/* -------------------- GET ACCESS TO OUR STATIC FILES -------------------- */
+app.use(express.static("public"));
 app.use(express.json());
 //allow api to be accessed by other servers
 app.use(cors());

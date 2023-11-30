@@ -2,6 +2,7 @@
 //ADD A VEHICLE
 // POST http://localhost:3000/api/vehicle HTTP/1.1 --> should letter change this to use render url
 // {"description": "sample vehicle","regNumber": "CAA 780-123"} --> this should come from the form.
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("add", () => {
     return {
